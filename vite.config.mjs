@@ -50,6 +50,8 @@ export default defineConfig(() => {
       proxy: {
         // https://vitejs.dev/config/server-options.html
       },
+      open: true,
+      host: '0.0.0.0'
     },
   }
 })
