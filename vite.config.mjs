@@ -38,6 +38,8 @@ export default defineConfig(() => {
           '.js': 'jsx',
         },
       },
+      include: ['react', 'react-dom'],
+      exclude: ['core-js'],
     },
     plugins: [react()],
     resolve: {
@@ -50,13 +52,16 @@ export default defineConfig(() => {
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
     },
     server: {
-      port: 3000,
+      port: parseInt(process.env.PORT) || 3000,
       proxy: {
         // https://vitejs.dev/config/server-options.html
       },
       open: true,
       host: '0.0.0.0',
-      allowedHosts: ['treasure-hunt-admin.onrender.com']
+      allowedHosts: ['treasure-hunt-admin.onrender.com'],
+      hmr: {
+        overlay: false, // Disable error overlay
+      },
     },
   }
 })
