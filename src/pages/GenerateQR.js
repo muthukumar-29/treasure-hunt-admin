@@ -14,7 +14,7 @@ export default function GenerateQR() {
     const [encryptedClue, setEncryptedClue] = useState("")
     const [qrCodeImagePath, setQrCodeImagePath] = useState("");
     const qrCodeRef = useRef(null);
-
+    
     const navigate = useNavigate();
 
     const secretKey = "my-secret-key"
@@ -57,7 +57,7 @@ export default function GenerateQR() {
                     const formData = new FormData();
                     formData.append("file", blob, fileName);
 
-                    const response = await axios.post("http://localhost:3001/upload-qrcode", formData, {
+                    const response = await axios.post("http://localhost:3003/upload-qrcode", formData, {
                         headers: { "Content-Type": "multipart/form-data" },
                     });
 

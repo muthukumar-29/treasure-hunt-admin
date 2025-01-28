@@ -13,7 +13,8 @@ import {
   cilCode,
   cilBug,
   cilQrCode,
-  cilStream
+  cilStream,
+  cilBadge
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -99,6 +100,12 @@ const _nav = [
         to: '/qrcode/view-qrcode',
       },
     ],
+  },
+  {
+    component: CNavItem,
+    name: 'Status',
+    to: '/status',
+    icon: <CIcon icon={cilBadge} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,

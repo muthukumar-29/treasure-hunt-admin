@@ -5,7 +5,7 @@ const AppFooter = () => {
   return (
     <CFooter className="px-4">
       <div>
-        <span className="ms-1">&copy; {new Date().getFullYear()} QMAZE. All Rights Reserved.</span>
+        <span className="ms-1">&copy; {new Date().getFullYear()} QMAZE 2K25</span>
       </div>
     </CFooter>
   )

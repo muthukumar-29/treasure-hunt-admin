@@ -7,7 +7,7 @@ export default function ListUsers() {
 
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
   const fetchUsers = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "users"));

@@ -5,7 +5,7 @@ export default function decrypt() {
 
     const [encrypted, setEncrypted] = useState("");
     const [decrypted, setDecrypted] = useState("");
-
+    
     const secretKey = "my-secret-key"
 
     const handleSubmit = (e) => {

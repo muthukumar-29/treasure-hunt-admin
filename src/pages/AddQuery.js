@@ -41,14 +41,14 @@ export default function AddQuery() {
             const questionQuery = query(queryRef, where("question", "==", question))
             const questionSnapshot = await getDocs(questionQuery);
 
-            if (!questionSnapshot.empty) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Duplicate Entry",
-                    text: "Question is Already Exists!",
-                });
-                return
-            }
+            // if (!questionSnapshot.empty) {
+            //     Swal.fire({
+            //         icon: "error",
+            //         title: "Duplicate Entry",
+            //         text: "Question is Already Exists!",
+            //     });
+            //     return
+            // }
 
             let filePath = null;
 
@@ -57,7 +57,7 @@ export default function AddQuery() {
                 formData.append("file", questionFile);
 
                 const uploadResponse = await axios.post(
-                    "http://localhost:3001/upload",
+                    "http://localhost:3003/upload",
                     formData,
                     {
                         headers: {
@@ -69,7 +69,7 @@ export default function AddQuery() {
                 filePath = uploadResponse.data.filePath;
             }
 
-            await addDoc(queryRef, { question, answer, filePath, answered: 0 })
+            await addDoc(queryRef, { question, answer, filePath, answered: 0, answeredBy: "" })
 
             Swal.fire({
                 icon: "success",

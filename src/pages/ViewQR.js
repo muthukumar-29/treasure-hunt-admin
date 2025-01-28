@@ -3,13 +3,14 @@ import db from "../firebase/firebase-config";
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import CIcon from '@coreui/icons-react'
-import { cilCloudDownload, cilDelete } from '@coreui/icons';
+import { cilCloudDownload, cilTrash } from '@coreui/icons';
 
 export default function ViewQR() {
 
     const [clues, setClues] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    
     const fetchClues = async () => {
         try {
             const querySnapshot = await getDocs(collection(db, "clue"));
@@ -114,13 +115,13 @@ export default function ViewQR() {
                                         <div className="card">
                                             <img className="card-img-top img-fluid p-3" src={clues.qrCodeImagePath} alt="Card image cap" />
                                             <div className="card-body">
-                                                {/* <p>{clues.encryptedClue}</p> */}
+                                                <p>{clues.encryptedClue}</p>
                                                 <div className='d-flex justify-content-around'>
                                                     {/* <a href={clues.qrCodeImagePath} download={`clue-${clues.id}.png`} className='btn btn-primary text-white' >
                                                         <CIcon icon={cilCloudDownload} customClassName="nav-icon" width={30} />
                                                     </a> */}
                                                     <button type='button' className='btn btn-primary text-white' onClick={() => handleDownloadWithPadding(clues.qrCodeImagePath, `clue-${clues.id}.png`)}><CIcon icon={cilCloudDownload} customClassName="nav-icon" width={30} /></button>
-                                                    <button type='submit' className='btn btn-danger text-white' onClick={() => handleDelete(clues.id)} ><CIcon icon={cilDelete} customClassName="nav-icon" width={30} /></button>
+                                                    <button type='submit' className='btn btn-danger text-white' onClick={() => handleDelete(clues.id)} ><CIcon icon={cilTrash} customClassName="nav-icon" width={30} /></button>
                                                 </div>
                                             </div>
                                         </div>

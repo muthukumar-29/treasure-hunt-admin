@@ -52,6 +52,7 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
+const Login = React.lazy(()=> import('./views/pages/login/Login'))
 const AddUsers = React.lazy(() => import('./pages/AddUsers'))
 const ListUsers = React.lazy(() => import('./pages/ListUsers'))
 const AddQuery = React.lazy(() => import('./pages/AddQuery'))
@@ -60,6 +61,8 @@ const GenerateQR = React.lazy(() => import('./pages/GenerateQR'))
 const ViewQR = React.lazy(() => import('./pages/ViewQR'))
 
 const Decrypt = React.lazy(()=> import('./pages/decrypt'))
+
+const Status = React.lazy(()=>import('./pages/Status'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -109,7 +112,7 @@ const routes = [
   { path: '/widgets', name: 'Widgets', element: Widgets },
 
 
-
+  { path: '/login', name:'Login', element: Login },
   { path: '/users/add-users', name: 'Users', element: AddUsers },
   { path: '/users/view-users', name: 'Users', element: ListUsers },
   { path: '/queries/add-queries', name: 'Questions', element: AddQuery },
@@ -117,6 +120,7 @@ const routes = [
   { path: '/qrcode/generate-qrcode', name: 'QR Code', element: GenerateQR },
   { path: '/qrcode/view-qrcode', name: 'QR Code', element: ViewQR },
   { path: '/decrypt', name: 'Decrypt', element: Decrypt },
+  { path: '/status', name:'Status', element: Status},
 ]
 
 export default routes

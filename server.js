@@ -74,7 +74,7 @@ app.post("/upload-qrcode", qrUpload.single("file"), async(req, res) => {
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Start the server
-const PORT = 3001; // Use a different port to avoid conflict with React
+const PORT = 3003; // Use a different port to avoid conflict with React
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

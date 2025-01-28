@@ -7,7 +7,7 @@ export default function ListQuery() {
 
     const [queries, setQuery] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    
     const fetchQueries = async () => {
         try {
             const querySnapshot = await getDocs(collection(db, "queries"));
