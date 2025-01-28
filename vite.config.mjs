@@ -24,8 +24,12 @@ export default defineConfig(() => {
     },
     esbuild: {
       loader: 'jsx',
+      target: 'esnext',
       include: /src\/.*\.jsx?$/,
       exclude: [],
+      legalComments: 'none',
+      jsx: 'automatic',
+      keepNames: true
     },
     optimizeDeps: {
       force: true,
