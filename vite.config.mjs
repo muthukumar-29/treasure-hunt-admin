@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer'
 
 export default defineConfig(() => {
   return {
-    base: './',
+    base: '/',
     build: {
       outDir: 'build',
     },
@@ -52,7 +52,6 @@ export default defineConfig(() => {
       },
       open: true,
       host: '0.0.0.0',
-      allowedHosts: ['treasure-hunt-admin.onrender.com'],
     },
   }
 })
