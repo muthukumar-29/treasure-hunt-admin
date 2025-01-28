@@ -51,7 +51,8 @@ export default defineConfig(() => {
         // https://vitejs.dev/config/server-options.html
       },
       open: true,
-      host: '0.0.0.0'
+      host: '0.0.0.0',
+      allowedHosts: ['treasure-hunt-admin.onrender.com'],
     },
   }
 })
