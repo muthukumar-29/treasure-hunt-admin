@@ -96,7 +96,7 @@ export default function ListQuery() {
                                         {/* <td scope="row">{user.id}</td> */}
                                         <td>{query.question}</td>
                                         <td>
-                                            {query.filePath ? (<img className="img-fluid" width="200" src={query.filePath} alt="Question File"></img>) : "No file Uploaded"}
+                                            {query.filePath ? (<img className="img-fluid" width="200" src={`https://treasure-hunt-uploads.onrender.com${ query.filePath }`} alt="Question File"></img>) : "No file Uploaded"}
                                         </td>
                                         <td>{query.answer}</td>
                                         <td>{query.answered}</td>

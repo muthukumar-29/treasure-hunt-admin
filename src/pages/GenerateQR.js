@@ -57,7 +57,7 @@ export default function GenerateQR() {
                     const formData = new FormData();
                     formData.append("file", blob, fileName);
 
-                    const response = await axios.post("http://localhost:3003/upload-qrcode", formData, {
+                    const response = await axios.post("https://treasure-hunt-uploads.onrender.com/upload-qrcode", formData, {
                         headers: { "Content-Type": "multipart/form-data" },
                     });
 

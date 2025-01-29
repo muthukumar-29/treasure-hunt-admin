@@ -113,14 +113,14 @@ export default function ViewQR() {
                                 clues.map((clues) => (
                                     <div className='col-md-4 col-lg-3 col-12 col-sm-4'>
                                         <div className="card">
-                                            <img className="card-img-top img-fluid p-3" src={clues.qrCodeImagePath} alt="Card image cap" />
+                                            <img className="card-img-top img-fluid p-3" src={`https://treasure-hunt-uploads.onrender.com${clues.qrCodeImagePath}`} alt="Card image cap" />
                                             <div className="card-body">
                                                 <p>{clues.encryptedClue}</p>
                                                 <div className='d-flex justify-content-around'>
                                                     {/* <a href={clues.qrCodeImagePath} download={`clue-${clues.id}.png`} className='btn btn-primary text-white' >
                                                         <CIcon icon={cilCloudDownload} customClassName="nav-icon" width={30} />
                                                     </a> */}
-                                                    <button type='button' className='btn btn-primary text-white' onClick={() => handleDownloadWithPadding(clues.qrCodeImagePath, `clue-${clues.id}.png`)}><CIcon icon={cilCloudDownload} customClassName="nav-icon" width={30} /></button>
+                                                    <button type='button' className='btn btn-primary text-white' onClick={() => handleDownloadWithPadding("https://treasure-hunt-uploads.onrender.com"+clues.qrCodeImagePath, `clue-${clues.id}.png`)}><CIcon icon={cilCloudDownload} customClassName="nav-icon" width={30} /></button>
                                                     <button type='submit' className='btn btn-danger text-white' onClick={() => handleDelete(clues.id)} ><CIcon icon={cilTrash} customClassName="nav-icon" width={30} /></button>
                                                 </div>
                                             </div>

@@ -57,7 +57,7 @@ export default function AddQuery() {
                 formData.append("file", questionFile);
 
                 const uploadResponse = await axios.post(
-                    "http://localhost:3003/upload",
+                    "https://treasure-hunt-uploads.onrender.com/upload",
                     formData,
                     {
                         headers: {
@@ -69,7 +69,7 @@ export default function AddQuery() {
                 filePath = uploadResponse.data.filePath;
             }
 
-            await addDoc(queryRef, { question, answer, filePath, answered: 0, answeredBy: "" })
+            await addDoc(queryRef, { question, answer, filePath, answeredBy: "" })
 
             Swal.fire({
                 icon: "success",
