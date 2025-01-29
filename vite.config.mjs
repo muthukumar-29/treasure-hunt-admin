@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer'
 
 export default defineConfig(() => {
   return {
-    base: '/',
+    base: './',
     build: {
       outDir: 'build',
     },
@@ -24,12 +24,8 @@ export default defineConfig(() => {
     },
     esbuild: {
       loader: 'jsx',
-      target: 'esnext',
       include: /src\/.*\.jsx?$/,
       exclude: [],
-      legalComments: 'none',
-      jsx: 'automatic',
-      keepNames: true
     },
     optimizeDeps: {
       force: true,
@@ -38,8 +34,6 @@ export default defineConfig(() => {
           '.js': 'jsx',
         },
       },
-      include: ['react', 'react-dom'],
-      exclude: ['core-js'],
     },
     plugins: [react()],
     resolve: {
@@ -52,16 +46,11 @@ export default defineConfig(() => {
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
     },
     server: {
-      port: parseInt(process.env.PORT) || 3000,
+      port: 3000,
       proxy: {
         // https://vitejs.dev/config/server-options.html
       },
-      open: true,
-      host: '0.0.0.0',
-      allowedHosts: ['treasure-hunt-admin.onrender.com'],
-      hmr: {
-        overlay: false, // Disable error overlay
-      },
+      host: '0.0.0.0'
     },
   }
 })
