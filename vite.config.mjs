@@ -46,13 +46,11 @@ export default defineConfig(() => {
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
     },
     server: {
-      port: process.env.PORT || 3000,
+      port: 3000,
       proxy: {
         // https://vitejs.dev/config/server-options.html
       },
-      host: '0.0.0.0',
-      allowedHosts: ['treasure-hunt-admin.onrender.com'],
-      strictPort: true
+      host: '0.0.0.0'
     },
   }
 })

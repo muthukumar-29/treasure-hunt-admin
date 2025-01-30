@@ -69,7 +69,7 @@ export default function AddQuery() {
                 filePath = uploadResponse.data.filePath;
             }
 
-            await addDoc(queryRef, { question, answer, filePath, answeredBy: "" })
+            await addDoc(queryRef, { question, answer, filePath, answeredBy: [] })
 
             Swal.fire({
                 icon: "success",

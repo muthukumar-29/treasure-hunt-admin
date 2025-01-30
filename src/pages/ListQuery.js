@@ -84,7 +84,6 @@ export default function ListQuery() {
                             <th scope="col">Question</th>
                             <th scope="col">Question File</th>
                             <th scope="col">Answer</th>
-                            <th scope="col">Status</th>
                             <th scope="col">Answered By</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -99,7 +98,6 @@ export default function ListQuery() {
                                             {query.filePath ? (<img className="img-fluid" width="200" src={`https://treasure-hunt-uploads.onrender.com${ query.filePath }`} alt="Question File"></img>) : "No file Uploaded"}
                                         </td>
                                         <td>{query.answer}</td>
-                                        <td>{query.answered}</td>
                                         <td>{query.answeredBy ?? "none"}</td>
                                         <td>
                                             <button type="submit" className="btn btn-danger text-white" onClick={() => handleDelete(query.id)}>Delete</button>

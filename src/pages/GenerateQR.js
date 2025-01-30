@@ -43,7 +43,6 @@ export default function GenerateQR() {
             const generateQrCode = async () => {
 
                 try {
-
                     // const qrCodeDataUrl = await QRCode.toDataUrl(encrypted, { errorCorrectionLevel: 'H' });
 
                     const svg = qrCodeRef.current.querySelector("svg")

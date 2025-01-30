@@ -93,7 +93,7 @@ export default function Status() {
                                                 <div className='d-flex'>
                                                     {queries.length > 0 ? (
                                                         queries.map((query) => (
-                                                            query.answeredBy === user.lotno ? <div key={query.id} className='bg-success rounded-circle' style={{ width: 20, height: 20, marginRight: 20 }}></div> : ''
+                                                            query.answeredBy.includes(user.lotno) ? <div key={query.id} className='bg-success rounded-circle' style={{ width: 20, height: 20, marginRight: 20 }}></div> : ''
                                                         ))
                                                     ) : (
                                                         <p>No queries found</p>
