@@ -57,7 +57,7 @@ export default function ViewQR() {
                 Swal.fire({
                     icon: 'success',
                     title: 'Deleted!',
-                    text: 'The clue has been deleted.',
+                    text: 'QR Code has been deleted.',
                 });
 
             } catch (error) {

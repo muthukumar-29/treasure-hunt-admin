@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react"
 import { collection, deleteDoc, getDocs, doc } from "firebase/firestore"
 import db from "../firebase/firebase-config"
 import Swal from "sweetalert2";
+import CIcon from "@coreui/icons-react";
+import { cilTrash } from "@coreui/icons";
 
 export default function ListQuery() {
 
     const [queries, setQuery] = useState([]);
     const [loading, setLoading] = useState(true);
-    
+
     const fetchQueries = async () => {
         try {
             const querySnapshot = await getDocs(collection(db, "queries"));
@@ -78,7 +80,7 @@ export default function ListQuery() {
                 queries.length === 0 ? (
                     <p>No Users found!!!</p>
                 ) : (
-                    <table className="table table-striped">
+                    <table className="table table-striped table-responsive">
                         <thead><tr>
                             {/* <th scope="col">ID</th> */}
                             <th scope="col">Question</th>
@@ -95,12 +97,20 @@ export default function ListQuery() {
                                         {/* <td scope="row">{user.id}</td> */}
                                         <td>{query.question}</td>
                                         <td>
-                                            {query.filePath ? (<img className="img-fluid" width="200" src={`https://treasure-hunt-uploads.onrender.com${ query.filePath }`} alt="Question File"></img>) : "No file Uploaded"}
+                                            {query.filePath ? (<img className="img-fluid" width="200" src={`https://treasure-hunt-uploads.onrender.com${query.filePath}`} alt="Question File"></img>) : "No file Uploaded"}
                                         </td>
                                         <td>{query.answer}</td>
-                                        <td>{query.answeredBy ?? "none"}</td>
+                                        <td>{query.answeredBy && query.answeredBy.length > 0 ? (
+                                            <ul className="d-flex" style={{ listStyle: 'none' }}>
+                                                {
+                                                    query.answeredBy.map((lotNumber, index) => (
+                                                        <li key={index}>{lotNumber},</li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        ) : "none"}</td>
                                         <td>
-                                            <button type="submit" className="btn btn-danger text-white" onClick={() => handleDelete(query.id)}>Delete</button>
+                                            <button type="submit" className="btn btn-danger text-white" onClick={() => handleDelete(query.id)}><CIcon icon={cilTrash} title="Delete" /></button>
                                         </td>
                                     </tr>
                                 ))

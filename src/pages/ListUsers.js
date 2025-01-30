@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore"
 import db from "../firebase/firebase-config"
 import Swal from "sweetalert2";
+import { cilTrash } from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
 
 export default function ListUsers() {
 
@@ -84,6 +86,7 @@ export default function ListUsers() {
             <thead><tr>
               {/* <th scope="col">ID</th> */}
               <th scope="col">Lot Number</th>
+              <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Action</th>
             </tr>
@@ -94,9 +97,10 @@ export default function ListUsers() {
                   <tr>
                     {/* <td scope="row">{user.id}</td> */}
                     <td>{user.lotno}</td>
+                    <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>
-                      <button type="submit" className="btn btn-danger text-white" onClick={() => handleDelete(user.id)}>Delete</button>
+                      <button type="submit" className="btn btn-danger text-white" onClick={() => handleDelete(user.id)}><CIcon icon={cilTrash} title="Delete" /></button>
                     </td>
                   </tr>
                 ))
